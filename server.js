@@ -2,8 +2,15 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
 var logger = require('morgan');
 var methodOverride = require('method-override');
+
+// Configures dotenv //
+require('dotenv').config();
+
+// Require the database config fie (connect to DB) //
+require('./config/database');
 
 
 var indexRouter = require('./routes/index');
@@ -19,6 +26,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// Session Setup //
+app.use(session({
+    secret: 'tacosRock',
+    resave: false,
+    saveUninitialized: true
+}))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
