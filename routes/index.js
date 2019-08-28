@@ -5,7 +5,9 @@ var indexController = require('../controllers/index');
 
 
 /* GET home page. */
-router.get('/', indexController.index);
+router.get('/', function(req, res, next) {
+  res.redirect('/emos');
+});
 
 router.get('/auth/google', passport.authenticate(
   'google',
@@ -15,14 +17,14 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/',
+    successRedirect: '/emos/new',
     failure: '/'
   }
 ));
 
 router.get('/logout', function(req, res) {
   req.logout();
-  res.redirect('/');
+  res.redirect('/emos');
 })
 
 module.exports = router;

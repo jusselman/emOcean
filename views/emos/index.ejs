@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+
+
+<div class="landing-container">
+
+        <ul>
+            <li class="list-options">
+              <% if (user) { %>
+              <a href="/logout">Log Out</a>
+              <% } else { %>
+            </li>
+          
+              <li class="header-primary">
+                emOceanz
+              </li>
+    
+              <li class="list-options">
+                <a href="/auth/google" class="header-login">Dive In</a>
+              </li>
+          <% } %>
+        </ul>
+</div>
+
+
+
+<%- include('../partials/footer') %>

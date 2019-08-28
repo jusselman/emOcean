@@ -9,6 +9,7 @@ var passport = require('passport');
 
 // Configures dotenv //
 require('dotenv').config();
+// console.log(process.env.DATABASE_URL);
 
 // Require the database config fie (connect to DB) //
 require('./config/database');
@@ -19,6 +20,7 @@ require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var emosRouter = require('./routes/emos')
 
 var app = express();
 
@@ -46,6 +48,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+// Dont bake in next one //
+app.use('/emos', emosRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
