@@ -13,7 +13,9 @@
         <!-- image: String,
         emoticon: String,
         comment: String -->
-
+<h1 class="show-header">
+    Bubbles
+</h1>
         
   <% emos.forEach(function(emo) { %>
 
@@ -34,7 +36,7 @@
   
 </form>
 
-    <form action="/emos/<%= emo._id %>._id/edit" method="GET">
+    <form action="/emos/<%= emo._id %>/edit" method="GET">
 
         <input type="submit" value="Edit" class="edit-button">
   

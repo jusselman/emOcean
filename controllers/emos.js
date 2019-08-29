@@ -9,15 +9,24 @@ module.exports = {
     editPage
 }
 
-function editPage(req, res) {Emo.findById(req.params.id, function(err, emo) {res.render('emos/edit', {emo: 'new'})})};
+function editPage(req, res) {
+Emo.findById(req.params.id, function(err, emo) {
+    // if (err) throw err
+        res.render('emos/edit', 
+        {
+            emo,
+            title: ''
+        }
+        );
+    })
+};
 
 
 function remove(req, res) {
     Emo.findByIdAndDelete(req.params.id)
     .then( emo =>
     res.redirect('/emos/show')
-    )
-
+        )
     }
 
 

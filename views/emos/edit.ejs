@@ -39,11 +39,11 @@
 </h1>
 
 <!-- Insert javascript random function -->
-<% function getRandNum() { %>
+<!-- <% function getRandNum() { %>
    <% return Math.floor(Math.random() * 22) + 1; %>
 <% }; %>
 <% const randNum = getRandNum(); %>
-<% console.log("----------------" +randNum);%>
+<% console.log("----------------" +randNum);%> -->
 
 
                             <!-- Action is really a path where user input goes -->
@@ -51,9 +51,8 @@
                             <!-- The content of the user input is the BODY!!!!! e.g. (req.body) -->
 <form class="selector-container" action="/emos" method="POST">
 
-    <img src="../images/img-<%= randNum %>.jpeg" class="selector-img">
+    <img src="<%= emo.image %>" class="selector-img">
 
-    <input type="hidden" value="<%= randNum %>" name="image">
     
     <select name="emoticon">
         <option value="&#x1F600;">&#x1F600;</option>
@@ -64,7 +63,7 @@
         <option value="&#x1F60D;">&#x1F60D;</option>
     </select>
     <div class="selector-comment">
-        <input type="string" name="comment">
+        <input type="string" name="comment" value="<%= emo.comment %>">
     </div>
     <div class="selector-button">
             <input type="submit" value="Plunge">
