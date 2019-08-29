@@ -27,15 +27,27 @@
   
   <div class="show-comment"><%= emo.comment %></div>
 
-  <input type="submit" value="Delete" class="show-button">
+  <!-- <input type="submit" value="Delete" class="show-button"> -->
 
 
   <a href="emos/new/">Snorkel Again</a> 
   
 </form>
 
-    <% }) %>
+    <form action="/emos/<%= emo._id %>._id/edit" method="GET">
 
+        <input type="submit" value="Edit" class="edit-button">
+  
+    </form>
+
+
+    <form action="/emos/<%= emo._id %>?_method=DELETE" method="POST">
+
+  <input type="submit" value="Delete" class="show-button">
+
+    </form>
 </div> 
+
+<% }) %>
 
 <%- include('../partials/footer') %>

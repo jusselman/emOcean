@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    
+  </head>
+  <body class="landing-body">
+
+      <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="#"><i class="fas fa-water"></i></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/emos/">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/emos/show/">Bubbles</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/emos/about/">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+<h1 class="selector-header">
+    What Emoticon <br>
+    Does this image evoke?
+</h1>
+
+<!-- Insert javascript random function -->
+<% function getRandNum() { %>
+   <% return Math.floor(Math.random() * 22) + 1; %>
+<% }; %>
+<% const randNum = getRandNum(); %>
+<% console.log("----------------" +randNum);%>
+
+
+                            <!-- Action is really a path where user input goes -->
+                            <!-- Sends info to create controller, through the router(who is the middleman) -->
+                            <!-- The content of the user input is the BODY!!!!! e.g. (req.body) -->
+<form class="selector-container" action="/emos" method="POST">
+
+    <img src="../images/img-<%= randNum %>.jpeg" class="selector-img">
+
+    <input type="hidden" value="<%= randNum %>" name="image">
+    
+    <select name="emoticon">
+        <option value="&#x1F600;">&#x1F600;</option>
+        <option value="&#x1F632;">&#x1F632;</option>
+        <option value="&#x1F620;">&#x1F620;</option>
+        <option value="&#x1F62D;">&#x1F62D;</option>
+        <option value="&#x1F610;">&#x1F610;</option>
+        <option value="&#x1F60D;">&#x1F60D;</option>
+    </select>
+    <div class="selector-comment">
+        <input type="string" name="comment">
+    </div>
+    <div class="selector-button">
+            <input type="submit" value="Plunge">
+    </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
