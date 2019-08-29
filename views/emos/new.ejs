@@ -38,28 +38,36 @@
     Does this image evoke?
 </h1>
 
+<!-- Insert javascript random function -->
+<% function getRandNum() { %>
+   <% return Math.floor(Math.random() * 22) + 1; %>
+<% }; %>
+<% const randNum = getRandNum(); %>
+<% console.log("----------------" +randNum);%>
+
+
                             <!-- Action is really a path where user input goes -->
                             <!-- Sends info to create controller, through the router(who is the middleman) -->
                             <!-- The content of the user input is the BODY!!!!! e.g. (req.body) -->
 <form class="selector-container" action="/emos" method="POST">
-    <img src='https://images.unsplash.com/photo-1561892608-9a4c0e4780c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80' class="selector-img">
+
+    <img src="../images/img-<%= randNum %>.jpeg" class="selector-img">
+
+    <input type="hidden" value="<%= randNum %>" name="image">
     
     <select name="emoticon">
         <option value="&#x1F600;">&#x1F600;</option>
-        <option value="selector-surprised">&#x1F632;</option>
-        <option value="selector-angry">&#x1F620;</option>
-        <option value="selector-sad">&#x1F62D;</option>
-        <option value="selector-unphased">&#x1F610;</option>
-        <option value="selector-warm">&#x1F60D;</option>
+        <option value="&#x1F632;">&#x1F632;</option>
+        <option value="&#x1F620;">&#x1F620;</option>
+        <option value="&#x1F62D;">&#x1F62D;</option>
+        <option value="&#x1F610;">&#x1F610;</option>
+        <option value="&#x1F60D;">&#x1F60D;</option>
     </select>
     <div class="selector-comment">
         <input type="string" name="comment">
     </div>
     <div class="selector-button">
-        <!-- <a href="../show"> -->
-            <!-- <div class="fake-button">Plunge</div> -->
             <input type="submit" value="Plunge">
-        <!-- </a> -->
     </div>
 </form>
 

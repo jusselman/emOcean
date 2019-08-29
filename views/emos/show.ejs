@@ -8,25 +8,34 @@
     <div class="selector-warm">&#x1F60D;</div>
     
 </div> -->
-<div id="show-nothing">
+<div id="show" class="show-container">
 
         <!-- image: String,
         emoticon: String,
         comment: String -->
+
+        
+  <% emos.forEach(function(emo) { %>
+
+    <form action="" method="post">
+
+  <img class="show-img" src="../images/img-<%= emo.image %>.jpeg">
   
-  <div><%= emo.image %></div>
   
-  
-  <div><%= emo.emoticon %></div>
+  <div class="show-emoticon"><%= emo.emoticon %></div>
 
   
-  <div><%= emo.comment %></div>
+  <div class="show-comment"><%= emo.comment %></div>
+
+  <input type="submit" value="Delete" class="show-button">
 
 
   <a href="emos/new/">Snorkel Again</a> 
-  <!-- <ul>
-    <%= %>
-  </ul> -->
+  
+</form>
+
+    <% }) %>
+
 </div> 
 
 <%- include('../partials/footer') %>

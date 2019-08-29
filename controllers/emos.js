@@ -8,21 +8,26 @@ module.exports = {
 }
 
 function show(req, res) {
-    res.render('emos/show', {title: 'Emos Forum'});
+    Emo.find({}, function(err, emos) {
+        res.render('emos/show', {
+            title: 'Emos Forum',
+            emos,
+            user: req.user
+        });
+    })
+    
+    
 }
 
 function create(req, res) {
     var emo = new Emo(req.body);
     emo.save(function(err, savedEmo) {
-        console.log(emo);
+        console.log(req.body);
+        console.log(savedEmo);
         if (err) return res.redirect('/new');
         // redirect doesn't take that (/show) always starts from root
         // render must provide any variables your EJS will use (in the second argument)
-        res.render('emos/show', {
-            emo: savedEmo,
-            title: null,
-            user: req.user
-        });
+        res.redirect('/emos/show', );
             
     })
     // Emo.create(req.body);
