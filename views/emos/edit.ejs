@@ -38,18 +38,10 @@
     This Entry
 </h1>
 
-<!-- Insert javascript random function -->
-<!-- <% function getRandNum() { %>
-   <% return Math.floor(Math.random() * 22) + 1; %>
-<% }; %>
-<% const randNum = getRandNum(); %>
-<% console.log("----------------" +randNum);%> -->
+<form class="selector-container" action="/emos/<%= emo._id%>?_method=PUT" method="POST">
 
+  <!-- <form action="/emos/<%= emo._id %>?_method=DELETE" method="POST"> -->
 
-                            <!-- Action is really a path where user input goes -->
-                            <!-- Sends info to create controller, through the router(who is the middleman) -->
-                            <!-- The content of the user input is the BODY!!!!! e.g. (req.body) -->
-<form class="selector-container" action="/emos/show" method="PUT">
 
     <img src="/images/img-<%= emo.image %>.jpeg" class="selector-img" name="image">
 
@@ -71,6 +63,10 @@
     <div class="selector-button">
         <input type="submit" value="Resubmit">
     </div>
+
+
+
+
 </form>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -12,22 +12,10 @@ module.exports = {
 }
 
 function editEmo(req, res) {
-    // emos.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err) {console.log(err), }
-    
-    
-    // res.redirect('/emos/about');
-
-
-// function displayEdit(req, res) {
-//     res.redirect('/emos/show')
-// }
-    Emo.findByIdAndUpdate(
-        req.params
-        .id, 
-        req.body, {
-        new: true
-    },
-        function(err) {
+    Emo.findByIdAndUpdate(req.params.id, {
+        emoticon: req.body.emoticon,
+        comment: req.body.comment
+    }, {new: true},function(err) {
             if (err) throw err 
             res.redirect('/emos/show/')
         }
