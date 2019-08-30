@@ -34,8 +34,8 @@
         </nav>
 
 <h1 class="selector-header">
-    What Emoticon <br>
-    Does this image evoke?
+    Let's Redefine<br>
+    This Entry
 </h1>
 
 <!-- Insert javascript random function -->
@@ -49,9 +49,9 @@
                             <!-- Action is really a path where user input goes -->
                             <!-- Sends info to create controller, through the router(who is the middleman) -->
                             <!-- The content of the user input is the BODY!!!!! e.g. (req.body) -->
-<form class="selector-container" action="/emos" method="POST">
+<form class="selector-container" action="/emos/show" method="PUT">
 
-    <img src="<%= emo.image %>" class="selector-img">
+    <img src="/images/img-<%= emo.image %>.jpeg" class="selector-img" name="image">
 
     
     <select name="emoticon">
@@ -62,11 +62,14 @@
         <option value="&#x1F610;">&#x1F610;</option>
         <option value="&#x1F60D;">&#x1F60D;</option>
     </select>
+    <div class="selected-emoticon">
+      <%= emo.emoticon %>
+    </div>
     <div class="selector-comment">
         <input type="string" name="comment" value="<%= emo.comment %>">
     </div>
     <div class="selector-button">
-            <input type="submit" value="Plunge">
+        <input type="submit" value="Resubmit">
     </div>
 </form>
 

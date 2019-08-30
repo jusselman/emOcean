@@ -6,8 +6,35 @@ module.exports = {
     show,
     create,
     remove,
-    editPage
+    editPage,
+    editEmo
+    // showAbout
 }
+
+function editEmo(req, res) {
+    // emos.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err) {console.log(err), }
+    
+    
+    // res.redirect('/emos/about');
+
+
+// function displayEdit(req, res) {
+//     res.redirect('/emos/show')
+// }
+    Emo.findByIdAndUpdate(
+        req.params
+        .id, 
+        req.body, {
+        new: true
+    },
+        function(err) {
+            if (err) throw err 
+            res.redirect('/emos/show/')
+        }
+    )
+}
+
+
 
 function editPage(req, res) {
 Emo.findById(req.params.id, function(err, emo) {

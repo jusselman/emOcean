@@ -9,6 +9,7 @@ router.post('/', emosCtrl.create);
 router.get('/show', emosCtrl.show);
 router.delete('/:id', emosCtrl.remove);
 router.get('/:id/edit', emosCtrl.editPage);
-router.put('/:id', emosCtrl.displayEdit);
+router.put('/:id', emosCtrl.editEmo);
+// router.get('/', emosCtrl.showAbout);
 
 module.exports = router;
