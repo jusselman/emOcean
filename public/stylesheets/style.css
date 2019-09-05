@@ -15,12 +15,20 @@ li {
 a {
   color: #fff !important;
   transition: all .3s ease;
-  
 }
 
 a:hover {
   color: rgb(190, 190, 190) !important;
   text-decoration: none !important;
+}
+
+form {
+  margin: 0 auto;
+}
+
+input {
+  border-radius: 20%;
+  padding: 5px;
 }
 
 .landing-body {
@@ -73,13 +81,10 @@ h1.selector-header {
   text-align: center;
 }
 
-.selector-img {
+.selector-img, .show-img {
   height: 15rem;
-
-}
-
-.show-img {
-  height: 15rem;
+  border-radius: 50%;
+  border:3px solid navy;
 }
 
 .selector-emoticons {
@@ -87,7 +92,6 @@ h1.selector-header {
   justify-content: center;
   font-size: 40px;
 }
-
 
 /* Show forum section */
 .show-container {
@@ -122,8 +126,9 @@ h1.selector-header {
   color: #fff;
 }
 
-.show-button {
-  height: 2rem;
+input {
+  /* height: 2rem; */
   color: #fff;
   background: navy;
 }
+
